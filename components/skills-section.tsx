@@ -23,63 +23,38 @@ export function SkillsSection() {
               key={skill.id}
               className={cn(
                 "group relative p-8 rounded-xl border border-border bg-card backdrop-blur-sm transition-all duration-500 hover-lift cursor-pointer",
-                skill.featured && "md:row-span-2",
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               )}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {skill.featured ? (
-                <div className="h-full flex flex-col">
-                  <div className="flex-1 flex items-center justify-center mb-4">
-                    <div className="w-full aspect-square rounded-lg bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center overflow-hidden p-8">
-                      {skill.logo ? (
-                        <Image
-                          src={skill.logo}
-                          alt={skill.name}
-                          width={120}
-                          height={120}
-                          className="object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                        />
-                      ) : (
-                        <div className="w-3/4 h-3/4 bg-gradient-to-br from-foreground/10 to-transparent rounded-full animate-morph" />
-                      )}
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm text-foreground mb-1">{skill.name}</p>
-                    <p className="text-xs text-muted-foreground">{skill.id}</p>
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                    {skill.logo ? (
-                      <Image
-                        src={skill.logo}
-                        alt={skill.name}
-                        width={48}
-                        height={48}
-                        className="object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                      />
-                    ) : (
-                      <span className="text-2xl font-light text-muted-foreground group-hover:text-foreground transition-colors">
-                        {skill.icon}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors mb-1">
-                    {skill.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground/60">{skill.id}</p>
-                  {/* Progress bar */}
-                  <div className="mt-4 h-1 bg-muted rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-foreground transition-all duration-1000"
-                      style={{ width: isInView ? `${skill.level}%` : "0%" }}
+              <div className="text-center">
+                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+                  {skill.logo ? (
+                    <Image
+                      src={skill.logo}
+                      alt={skill.name}
+                      width={48}
+                      height={48}
+                      className="object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                     />
-                  </div>
+                  ) : (
+                    <span className="text-2xl font-light text-muted-foreground group-hover:text-foreground transition-colors">
+                      {skill.icon}
+                    </span>
+                  )}
                 </div>
-              )}
+                <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors mb-1">
+                  {skill.name}
+                </p>
+                <p className="text-xs text-muted-foreground/60">{skill.id}</p>
+                {/* Progress bar */}
+                <div className="mt-4 h-1 bg-muted rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-foreground transition-all duration-1000"
+                    style={{ width: isInView ? `${skill.level}%` : "0%" }}
+                  />
+                </div>
+              </div>
 
               <div className="absolute inset-0 rounded-xl bg-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
